@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Survey: Terminal Comfort</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 16px;
+      color: #222;
+    }
+    h1 { font-size: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h1>How comfortable are you with the terminal / command line?</h1>
+
+  <canvas id="surveyChart"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const labels = [
+      'Not at all',
+      'Somewhat familiar',
+      'Very comfortable'
+    ];
+ 
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'Students',
+        data: [20, 27, 6],
+        backgroundColor: ['#f87150', '#facc90', '#4ade20'],
+        borderWidth: 1
+      }]
+    };
+ 
+    new Chart(document.getElementById('surveyChart'), {
+      type: 'bar',
+      data: data,
+      options: {
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Number of students' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
